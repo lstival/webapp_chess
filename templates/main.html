@@ -1,0 +1,38 @@
+
+<!doctype html>
+<html>
+<style>
+form {
+    margin: auto;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+</style>
+<head>
+    <title>Chess piece predict</title>
+</head>
+
+<br>
+<div class="result" align="center">
+    {% if not result %}
+        <br> Select a chess piece image, and we will predict to you what kind it's :)
+        <br> ( Only .jpg images )
+    {% endif %}
+    {% if result %}
+        <br> Predicted chess piece type is:
+        <p style="font-size:50px">{{ result }}</p>
+    {% endif %}
+</div>
+<br>
+<form method=post enctype=multipart/form-data>
+    <fieldset>
+        <input type=file name=file>
+        <input type=submit value=Upload>
+    </fieldset>
+</form>
+
+</html>
